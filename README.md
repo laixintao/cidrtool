@@ -1,5 +1,11 @@
 # CIDR Calculator
 
+## Installation
+
+```
+pip install ipsetcalc
+```
+
 ## Usage
 
 ```
