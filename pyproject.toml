@@ -1,5 +1,5 @@
 [project]
-name = "ipsetcalc"
+name = "cidrtool"
 version = "0.1.0"
 description = ""
 authors = [
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [tool.poetry.scripts]
-ipsetcalc = 'ipsetcalc.main:main'
+cidrtool = 'cidrtool.main:cidrtool'
 
 
 [build-system]
