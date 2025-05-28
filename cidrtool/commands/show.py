@@ -30,6 +30,7 @@ def show(cidrs, verbose):
     previous_ipset = None
     previous_nets = []
     has_overlap = False
+    total_ips = 0
     for net in sorted_net:
         current_ipset = IPSet([net])
 
@@ -61,14 +62,18 @@ def show(cidrs, verbose):
             continue
         else:
             print_group(contiguous_ipset, previous_nets)
-            contiguous_ipset = None
-            previous_nets = []
+            total_ips += contiguous_ipset.size
 
-    if previous_nets:
-        print_group(previous_ipset, previous_nets)
+            contiguous_ipset = current_ipset
+            previous_nets = [net]
+
+    if contiguous_ipset:
+        print_group(contiguous_ipset, previous_nets)
+        total_ips += contiguous_ipset.size
 
     if not has_overlap:
         print("* There is no overlap in this ipset.")
+    print("* Total IPs: {}".format(total_ips))
 
 
 def print_group(ipset, nets):
