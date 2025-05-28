@@ -42,5 +42,16 @@ def click_verbose_output(verbose, text):
 
 
 def read_args_from_stdin():
-    args = [line.strip() for line in sys.stdin if line.strip()]
+    args = []
+    for line in sys.stdin:
+        striped = line.strip()
+        if not striped:
+            continue
+        splited = striped.split(",")
+        for arg in splited:
+            striped = arg.strip()
+            if not striped:
+                continue
+            args.append(arg)
+
     return args
