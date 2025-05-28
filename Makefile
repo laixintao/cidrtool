@@ -1,3 +1,3 @@
 patch:
-	bumpvertion patch
+	bumpversion patch
 	poetry publish
